@@ -32,7 +32,7 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
             <img
-              src={isScrolled ? "/lovable-uploads/5d5cac74-0cc7-4ddf-8954-65ff18050683.png" : "/lovable-uploads/7219978a-4d2f-48d2-be5a-451a70e07f1a.png"}
+              src={isScrolled ? "/lovable-uploads/7219978a-4d2f-48d2-be5a-451a70e07f1a.png" : "/lovable-uploads/5d5cac74-0cc7-4ddf-8954-65ff18050683.png"}
               alt="TrueAgents.ai"
               className="h-10 w-auto"
             />
