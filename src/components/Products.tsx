@@ -53,11 +53,11 @@ export const Products = () => {
               key={index}
               className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             >
-              <div className="mb-4 flex justify-center">
+              <div className="mb-4 w-full">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="h-16 w-auto object-contain"
+                  className="w-full h-auto object-contain"
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2">{product.name}</h3>

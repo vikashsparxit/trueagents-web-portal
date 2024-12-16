@@ -34,7 +34,7 @@ export const Navigation = () => {
             <img
               src="/lovable-uploads/6733d5ee-78db-4292-8521-02fb2410e0da.png"
               alt="TrueAgents.ai"
-              className="h-8"
+              className="h-10 w-auto"
             />
           </div>
 
