@@ -1,31 +1,42 @@
-import { MessageSquare, Users, Code, PiggyBank } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Products = () => {
   const products = [
     {
-      icon: <MessageSquare className="h-8 w-8" />,
+      image: "/lovable-uploads/39c230a8-8ac4-4829-bde5-23e748927c77.png",
       name: "Chat Agent",
       description: "Advanced conversational AI for seamless communication",
       link: "/chat",
     },
     {
-      icon: <Users className="h-8 w-8" />,
+      image: "/placeholder.svg",
       name: "Lead Evaluator Agent",
       description: "Intelligent lead qualification and management",
       link: "/lead-evaluator",
     },
     {
-      icon: <Code className="h-8 w-8" />,
+      image: "/placeholder.svg",
       name: "Code Reviewer Agent",
       description: "Automated code quality assurance and review",
       link: "/code-reviewer",
     },
     {
-      icon: <PiggyBank className="h-8 w-8" />,
+      image: "/placeholder.svg",
       name: "Wealth Manager",
       description: "AI-powered financial planning and wealth management",
       link: "/wealth-manager",
+    },
+    {
+      image: "/placeholder.svg",
+      name: "Rapid Onboarding (KYC Agent)",
+      description: "Automate KYC processes with AI for faster customer onboarding",
+      link: "/kyc",
+    },
+    {
+      image: "/placeholder.svg",
+      name: "AI Powered Forms",
+      description: "Intelligent form processing and automation",
+      link: "/forms",
     },
   ];
 
@@ -36,13 +47,19 @@ export const Products = () => {
           Explore Our AI Agents
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
             <div
               key={index}
               className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             >
-              <div className="text-secondary mb-4">{product.icon}</div>
+              <div className="mb-4 flex justify-center">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="h-16 w-auto object-contain"
+                />
+              </div>
               <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
               <p className="text-gray-600 mb-4">{product.description}</p>
               <Button
