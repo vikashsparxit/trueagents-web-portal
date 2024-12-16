@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 export const Products = () => {
   const products = [
     {
-      image: "/lovable-uploads/39c230a8-8ac4-4829-bde5-23e748927c77.png",
+      image: "/lovable-uploads/d5f54f85-cec9-4230-9980-4a74248f47b7.png",
       name: "Chat Agent",
       description: "Advanced conversational AI for seamless communication",
       link: "/chat",
