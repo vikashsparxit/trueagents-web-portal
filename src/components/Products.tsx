@@ -27,13 +27,13 @@ export const Products = () => {
       link: "/wealth-manager",
     },
     {
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/6008adc1-008c-435e-94e3-9090ed88875c.png",
       name: "Rapid Onboarding (KYC Agent)",
       description: "Automate KYC processes with AI for faster customer onboarding",
       link: "/kyc",
     },
     {
-      image: "/placeholder.svg",
+      image: "/lovable-uploads/8eeba068-fcd3-4e2e-a415-72b4a59e941d.png",
       name: "AI Powered Forms",
       description: "Intelligent form processing and automation",
       link: "/forms",
