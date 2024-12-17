@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
@@ -13,25 +12,18 @@ export const Hero = () => {
       
       <div className="container mx-auto px-4 text-center">
         <div className="animate-fade-up space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            AI Solutions for Personal and Professional Growth
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 max-w-5xl mx-auto leading-tight">
+            AI Solutions for Personal and<br />Professional Growth
           </h1>
           <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto mb-8">
             TrueAgents.ai offers cutting-edge AI solutions designed to enhance efficiency, drive success, and streamline your life.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Button
               onClick={scrollToProducts}
               className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6"
             >
-              Learn More
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Button
-              variant="outline"
-              className="bg-transparent border-white text-white hover:bg-white/10 text-lg px-8 py-6"
-            >
-              Explore Chat Agent
+              Explore AI Agents
             </Button>
           </div>
         </div>

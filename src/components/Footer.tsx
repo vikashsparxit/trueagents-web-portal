@@ -38,7 +38,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} TrueAgents.ai. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Sparx IT Solutions Pvt. Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>

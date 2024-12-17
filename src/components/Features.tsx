@@ -1,11 +1,26 @@
-import { Shield, Clock, Scale, Globe, Cpu } from "lucide-react";
+import { Shield, Clock, Scale, Brain, Sparkles, Lock } from "lucide-react";
 
 export const Features = () => {
   const features = [
     {
-      icon: <Cpu className="h-6 w-6" />,
-      title: "AI-Driven Insights",
-      description: "Leverage advanced algorithms for intelligent decision-making",
+      icon: <Sparkles className="h-6 w-6" />,
+      title: "Tailored Solutions",
+      description: "Custom-built AI tools designed for your unique challenges",
+    },
+    {
+      icon: <Scale className="h-6 w-6" />,
+      title: "Scalable Platform",
+      description: "Flexible and scalable to grow with your business",
+    },
+    {
+      icon: <Brain className="h-6 w-6" />,
+      title: "Proven Expertise",
+      description: "Backed by SparxIT's extensive experience in AI innovation",
+    },
+    {
+      icon: <Sparkles className="h-6 w-6" />,
+      title: "Ease of Use",
+      description: "Intuitive interfaces and seamless integrations for effortless adoption",
     },
     {
       icon: <Clock className="h-6 w-6" />,
@@ -13,24 +28,14 @@ export const Features = () => {
       description: "Access your AI agents whenever you need them",
     },
     {
-      icon: <Shield className="h-6 w-6" />,
+      icon: <Lock className="h-6 w-6" />,
       title: "Secure Solutions",
       description: "Enterprise-grade security for your data and interactions",
-    },
-    {
-      icon: <Globe className="h-6 w-6" />,
-      title: "Multilingual Support",
-      description: "Communicate in multiple languages with our AI agents",
-    },
-    {
-      icon: <Scale className="h-6 w-6" />,
-      title: "Scalable Platform",
-      description: "Grow with a platform that scales with your needs",
     },
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id="features" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-16">
           Why Choose TrueAgents.ai?
