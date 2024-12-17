@@ -21,7 +21,7 @@ export const Products = () => {
       link: "/code-reviewer",
     },
     {
-      image: "/lovable-uploads/ec6e0dc7-1695-4b17-8dd1-2c348b8437d8.png",
+      image: "/lovable-uploads/438647ea-c613-494a-8881-b6147ce2b736.png",
       name: "Wealth Manager",
       description: "AI-powered financial planning and wealth management",
       link: "/wealth-manager",

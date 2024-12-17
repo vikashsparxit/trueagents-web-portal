@@ -17,7 +17,14 @@ export const Navigation = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const offset = 80; // Account for fixed header
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
     setIsMobileMenuOpen(false);
   };
@@ -62,7 +69,7 @@ export const Navigation = () => {
                 isScrolled ? "text-primary" : "text-white"
               } hover:text-secondary transition-colors`}
             >
-              Features
+              Why Us?
             </button>
             <Button onClick={() => scrollToSection("products")}>Get Started</Button>
           </div>
@@ -99,7 +106,7 @@ export const Navigation = () => {
                 onClick={() => scrollToSection("features")}
                 className="text-primary hover:text-secondary transition-colors px-4 py-2"
               >
-                Features
+                Why Us?
               </button>
               <Button
                 onClick={() => scrollToSection("products")}
