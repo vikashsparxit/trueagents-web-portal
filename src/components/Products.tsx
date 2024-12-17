@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 export const Products = () => {
   const products = [
     {
-      image: "/lovable-uploads/3737fe1d-954a-482e-9062-b3d5001258d7.png",
+      image: "/lovable-uploads/cd0ce128-dc9e-40c1-8df3-8841b3d56cf0.png",
       name: "Chat Agent",
       description: "Advanced conversational AI for seamless communication",
       link: "/chat",
@@ -21,7 +21,7 @@ export const Products = () => {
       link: "/code-reviewer",
     },
     {
-      image: "/lovable-uploads/e53d7a73-ab44-4efd-9b76-b736591fc3a6.png",
+      image: "/lovable-uploads/bd86052a-2ed2-4e19-b411-1e0ca7e3fae4.png",
       name: "Wealth Manager",
       description: "AI-powered financial planning and wealth management",
       link: "/wealth-manager",
