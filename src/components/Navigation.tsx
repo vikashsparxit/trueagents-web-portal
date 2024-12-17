@@ -71,7 +71,11 @@ export const Navigation = () => {
             >
               Why Us?
             </button>
-            <Button onClick={() => scrollToSection("products")}>Get Started</Button>
+            <Button 
+              onClick={() => window.open("https://www.sparxitsolutions.com/contact-global.shtml", "_blank")}
+            >
+              Request a Custom AI Solution
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -109,10 +113,10 @@ export const Navigation = () => {
                 Why Us?
               </button>
               <Button
-                onClick={() => scrollToSection("products")}
+                onClick={() => window.open("https://www.sparxitsolutions.com/contact-global.shtml", "_blank")}
                 className="w-full"
               >
-                Get Started
+                Request a Custom AI Solution
               </Button>
             </div>
           </div>
