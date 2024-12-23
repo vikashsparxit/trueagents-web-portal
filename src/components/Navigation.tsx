@@ -71,6 +71,12 @@ export const Navigation = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const getContactUrl = () => {
+    const baseUrl = "https://www.sparxitsolutions.com/contact-global.shtml";
+    const currentPage = location.pathname.replace('/', '') || 'homepage';
+    return `${baseUrl}?utm_source=trueagents&utm_medium=website&utm_campaign=${currentPage}`;
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -132,7 +138,7 @@ export const Navigation = () => {
               </button>
             )}
             <Button 
-              onClick={() => window.open("https://www.sparxitsolutions.com/contact-global.shtml", "_blank")}
+              onClick={() => window.open(getContactUrl(), "_blank")}
             >
               Request a Custom AI Solution
             </Button>
@@ -171,7 +177,7 @@ export const Navigation = () => {
                 >
                   {product.name}
                 </button>
-              )}
+              ))}
               {isHomePage && (
                 <button
                   onClick={() => scrollToSection("features")}
@@ -181,7 +187,7 @@ export const Navigation = () => {
                 </button>
               )}
               <Button
-                onClick={() => window.open("https://www.sparxitsolutions.com/contact-global.shtml", "_blank")}
+                onClick={() => window.open(getContactUrl(), "_blank")}
                 className="w-full"
               >
                 Request a Custom AI Solution

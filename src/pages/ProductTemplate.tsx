@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
+import { useLocation } from "react-router-dom";
 
 interface ProductTemplateProps {
   title: string;
@@ -11,6 +12,14 @@ interface ProductTemplateProps {
 }
 
 export const ProductTemplate = ({ title, description, image, features }: ProductTemplateProps) => {
+  const location = useLocation();
+  
+  const getContactUrl = () => {
+    const baseUrl = "https://www.sparxitsolutions.com/contact-global.shtml";
+    const currentPage = location.pathname.replace('/', '') || 'homepage';
+    return `${baseUrl}?utm_source=trueagents&utm_medium=website&utm_campaign=${currentPage}`;
+  };
+
   return (
     <div className="min-h-screen">
       <SEO 
@@ -47,7 +56,7 @@ export const ProductTemplate = ({ title, description, image, features }: Product
 
               <div className="mt-12 text-center">
                 <Button
-                  onClick={() => window.open("https://www.sparxitsolutions.com/contact-global.shtml", "_blank")}
+                  onClick={() => window.open(getContactUrl(), "_blank")}
                   size="lg"
                 >
                   Request a Demo
