@@ -15,14 +15,17 @@ export const Navigation = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("Navigation component mounted");
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      console.log("Scroll position:", window.scrollY);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
+    console.log("Scrolling to section:", id);
     const element = document.getElementById(id);
     if (element) {
       const offset = 80;
@@ -50,6 +53,7 @@ export const Navigation = () => {
   ];
 
   const handleProductClick = (link: string, external: boolean) => {
+    console.log("Product clicked:", link, "External:", external);
     if (external) {
       window.open(link, '_blank');
     } else {
@@ -72,6 +76,7 @@ export const Navigation = () => {
                 src={isScrolled ? "/lovable-uploads/7219978a-4d2f-48d2-be5a-451a70e07f1a.png" : "/lovable-uploads/5d5cac74-0cc7-4ddf-8954-65ff18050683.png"}
                 alt="TrueAgents.ai"
                 className="h-14 w-auto cursor-pointer"
+                loading="eager"
               />
             </Link>
           </div>
@@ -95,11 +100,12 @@ export const Navigation = () => {
               >
                 Products
               </DropdownMenuTrigger>
-              <DropdownMenuContent>
+              <DropdownMenuContent className="bg-[#8B5CF6] text-white min-w-[200px] p-2 rounded-md shadow-lg">
                 {products.map((product, index) => (
                   <DropdownMenuItem
                     key={index}
                     onClick={() => handleProductClick(product.link, product.external)}
+                    className="hover:bg-[#7E69AB] rounded px-4 py-2 cursor-pointer transition-colors"
                   >
                     {product.name}
                   </DropdownMenuItem>
