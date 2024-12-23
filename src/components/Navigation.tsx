@@ -7,12 +7,14 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     console.log("Navigation component mounted");
@@ -23,6 +25,14 @@ export const Navigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Force background on inner pages
+  useEffect(() => {
+    console.log("Current route:", location.pathname);
+    if (!isHomePage) {
+      setIsScrolled(true);
+    }
+  }, [location.pathname, isHomePage]);
 
   const scrollToSection = (id: string) => {
     console.log("Scrolling to section:", id);
@@ -65,7 +75,7 @@ export const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        isScrolled || !isHomePage ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -73,7 +83,7 @@ export const Navigation = () => {
           <div className="flex items-center">
             <Link to="/">
               <img
-                src={isScrolled ? "/lovable-uploads/7219978a-4d2f-48d2-be5a-451a70e07f1a.png" : "/lovable-uploads/5d5cac74-0cc7-4ddf-8954-65ff18050683.png"}
+                src={isScrolled || !isHomePage ? "/lovable-uploads/7219978a-4d2f-48d2-be5a-451a70e07f1a.png" : "/lovable-uploads/5d5cac74-0cc7-4ddf-8954-65ff18050683.png"}
                 alt="TrueAgents.ai"
                 className="h-14 w-auto cursor-pointer"
                 loading="eager"
@@ -83,19 +93,21 @@ export const Navigation = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection("about")}
-              className={`${
-                isScrolled ? "text-primary" : "text-white"
-              } hover:text-secondary transition-colors`}
-            >
-              About
-            </button>
+            {isHomePage && (
+              <button
+                onClick={() => scrollToSection("about")}
+                className={`${
+                  isScrolled || !isHomePage ? "text-primary" : "text-white"
+                } hover:text-secondary transition-colors`}
+              >
+                About
+              </button>
+            )}
             
             <DropdownMenu>
               <DropdownMenuTrigger
                 className={`${
-                  isScrolled ? "text-primary" : "text-white"
+                  isScrolled || !isHomePage ? "text-primary" : "text-white"
                 } hover:text-secondary transition-colors`}
               >
                 Products
@@ -113,14 +125,16 @@ export const Navigation = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <button
-              onClick={() => scrollToSection("features")}
-              className={`${
-                isScrolled ? "text-primary" : "text-white"
-              } hover:text-secondary transition-colors`}
-            >
-              Why Us?
-            </button>
+            {isHomePage && (
+              <button
+                onClick={() => scrollToSection("features")}
+                className={`${
+                  isScrolled || !isHomePage ? "text-primary" : "text-white"
+                } hover:text-secondary transition-colors`}
+              >
+                Why Us?
+              </button>
+            )}
             <Button 
               onClick={() => window.open("https://www.sparxitsolutions.com/contact-global.shtml", "_blank")}
             >
@@ -134,6 +148,7 @@ export const Navigation = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={isScrolled || !isHomePage ? "text-primary" : "text-white"}
             >
               <Menu className="h-6 w-6" />
             </Button>
@@ -144,12 +159,14 @@ export const Navigation = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white py-4 px-2 shadow-lg rounded-lg mt-2 absolute left-4 right-4">
             <div className="flex flex-col space-y-4">
-              <button
-                onClick={() => scrollToSection("about")}
-                className="text-primary hover:text-secondary transition-colors px-4 py-2"
-              >
-                About
-              </button>
+              {isHomePage && (
+                <button
+                  onClick={() => scrollToSection("about")}
+                  className="text-primary hover:text-secondary transition-colors px-4 py-2"
+                >
+                  About
+                </button>
+              )}
               {products.map((product, index) => (
                 <button
                   key={index}
@@ -159,12 +176,14 @@ export const Navigation = () => {
                   {product.name}
                 </button>
               ))}
-              <button
-                onClick={() => scrollToSection("features")}
-                className="text-primary hover:text-secondary transition-colors px-4 py-2"
-              >
-                Why Us?
-              </button>
+              {isHomePage && (
+                <button
+                  onClick={() => scrollToSection("features")}
+                  className="text-primary hover:text-secondary transition-colors px-4 py-2"
+                >
+                  Why Us?
+                </button>
+              )}
               <Button
                 onClick={() => window.open("https://www.sparxitsolutions.com/contact-global.shtml", "_blank")}
                 className="w-full"
