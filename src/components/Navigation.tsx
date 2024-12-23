@@ -94,7 +94,7 @@ export const Navigation = () => {
                 alt="TrueAgents.ai"
                 className="h-14 w-auto cursor-pointer"
                 loading="eager"
-                fetchpriority="high"
+                fetchPriority="high"
               />
             </Link>
           </div>
