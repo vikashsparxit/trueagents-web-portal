@@ -26,7 +26,6 @@ export const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Force background on inner pages
   useEffect(() => {
     console.log("Current route:", location.pathname);
     if (!isHomePage) {
@@ -75,7 +74,9 @@ export const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || !isHomePage ? "bg-white shadow-md" : "bg-transparent"
+        isScrolled || !isHomePage 
+          ? "bg-gradient-to-br from-primary/90 to-secondary/90 shadow-md" 
+          : "bg-gradient-to-br from-primary/90 to-secondary/90"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -83,10 +84,11 @@ export const Navigation = () => {
           <div className="flex items-center">
             <Link to="/">
               <img
-                src={isScrolled || !isHomePage ? "/lovable-uploads/7219978a-4d2f-48d2-be5a-451a70e07f1a.png" : "/lovable-uploads/5d5cac74-0cc7-4ddf-8954-65ff18050683.png"}
+                src={"/lovable-uploads/5d5cac74-0cc7-4ddf-8954-65ff18050683.png"}
                 alt="TrueAgents.ai"
                 className="h-14 w-auto cursor-pointer"
                 loading="eager"
+                fetchpriority="high"
               />
             </Link>
           </div>
@@ -96,9 +98,7 @@ export const Navigation = () => {
             {isHomePage && (
               <button
                 onClick={() => scrollToSection("about")}
-                className={`${
-                  isScrolled || !isHomePage ? "text-primary" : "text-white"
-                } hover:text-secondary transition-colors`}
+                className="text-white hover:text-secondary transition-colors"
               >
                 About
               </button>
@@ -106,9 +106,7 @@ export const Navigation = () => {
             
             <DropdownMenu>
               <DropdownMenuTrigger
-                className={`${
-                  isScrolled || !isHomePage ? "text-primary" : "text-white"
-                } hover:text-secondary transition-colors`}
+                className="text-white hover:text-secondary transition-colors"
               >
                 Products
               </DropdownMenuTrigger>
@@ -128,9 +126,7 @@ export const Navigation = () => {
             {isHomePage && (
               <button
                 onClick={() => scrollToSection("features")}
-                className={`${
-                  isScrolled || !isHomePage ? "text-primary" : "text-white"
-                } hover:text-secondary transition-colors`}
+                className="text-white hover:text-secondary transition-colors"
               >
                 Why Us?
               </button>
@@ -148,7 +144,7 @@ export const Navigation = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={isScrolled || !isHomePage ? "text-primary" : "text-white"}
+              className="text-white"
             >
               <Menu className="h-6 w-6" />
             </Button>
@@ -157,12 +153,12 @@ export const Navigation = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden bg-white py-4 px-2 shadow-lg rounded-lg mt-2 absolute left-4 right-4">
+          <div className="md:hidden bg-gradient-to-br from-primary/90 to-secondary/90 py-4 px-2 shadow-lg rounded-lg mt-2 absolute left-4 right-4">
             <div className="flex flex-col space-y-4">
               {isHomePage && (
                 <button
                   onClick={() => scrollToSection("about")}
-                  className="text-primary hover:text-secondary transition-colors px-4 py-2"
+                  className="text-white hover:text-secondary transition-colors px-4 py-2"
                 >
                   About
                 </button>
@@ -171,15 +167,15 @@ export const Navigation = () => {
                 <button
                   key={index}
                   onClick={() => handleProductClick(product.link, product.external)}
-                  className="text-primary hover:text-secondary transition-colors px-4 py-2"
+                  className="text-white hover:text-secondary transition-colors px-4 py-2"
                 >
                   {product.name}
                 </button>
-              ))}
+              )}
               {isHomePage && (
                 <button
                   onClick={() => scrollToSection("features")}
-                  className="text-primary hover:text-secondary transition-colors px-4 py-2"
+                  className="text-white hover:text-secondary transition-colors px-4 py-2"
                 >
                   Why Us?
                 </button>
