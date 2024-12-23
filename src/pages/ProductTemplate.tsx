@@ -1,6 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 interface ProductTemplateProps {
   title: string;
@@ -12,6 +13,11 @@ interface ProductTemplateProps {
 export const ProductTemplate = ({ title, description, image, features }: ProductTemplateProps) => {
   return (
     <div className="min-h-screen">
+      <SEO 
+        title={title}
+        description={description}
+        image={image}
+      />
       <Navigation />
       
       <main className="pt-32">
