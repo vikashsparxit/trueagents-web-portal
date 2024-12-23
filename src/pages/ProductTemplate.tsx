@@ -14,12 +14,12 @@ export const ProductTemplate = ({ title, description, image, features }: Product
     <div className="min-h-screen">
       <Navigation />
       
-      <main className="pt-24">
+      <main className="pt-32">
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-br from-primary/90 to-secondary/90">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">{title}</h1>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">{description}</p>
+            <p className="text-xl text-white/80 max-w-3xl mx-auto mb-8">{description}</p>
           </div>
         </section>
 

@@ -1,10 +1,18 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +25,7 @@ export const Navigation = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // Account for fixed header
+      const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       
@@ -25,6 +33,27 @@ export const Navigation = () => {
         top: offsetPosition,
         behavior: "smooth"
       });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const products = [
+    { name: "Chat Agent", link: "https://www.trueagents.ai/chat/", external: true },
+    { name: "Wealth Manager", link: "https://www.trueagents.ai/wealth-manager/", external: true },
+    { name: "Email Craftsman", link: "https://www.trueagents.ai/emailcraftsman/", external: true },
+    { name: "ReNews", link: "/renews", external: false },
+    { name: "Lead Evaluator", link: "/lead-evaluator", external: false },
+    { name: "Code Reviewer", link: "/code-reviewer", external: false },
+    { name: "Rapid Onboarding", link: "/rapid-onboarding", external: false },
+    { name: "AI Forms", link: "/ai-forms", external: false },
+    { name: "PostPal", link: "/postpal", external: false },
+  ];
+
+  const handleProductClick = (link: string, external: boolean) => {
+    if (external) {
+      window.open(link, '_blank');
+    } else {
+      navigate(link);
     }
     setIsMobileMenuOpen(false);
   };
@@ -38,11 +67,13 @@ export const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-24">
           <div className="flex items-center">
-            <img
-              src={isScrolled ? "/lovable-uploads/7219978a-4d2f-48d2-be5a-451a70e07f1a.png" : "/lovable-uploads/5d5cac74-0cc7-4ddf-8954-65ff18050683.png"}
-              alt="TrueAgents.ai"
-              className="h-14 w-auto"
-            />
+            <Link to="/">
+              <img
+                src={isScrolled ? "/lovable-uploads/7219978a-4d2f-48d2-be5a-451a70e07f1a.png" : "/lovable-uploads/5d5cac74-0cc7-4ddf-8954-65ff18050683.png"}
+                alt="TrueAgents.ai"
+                className="h-14 w-auto cursor-pointer"
+              />
+            </Link>
           </div>
 
           {/* Desktop Menu */}
@@ -55,14 +86,27 @@ export const Navigation = () => {
             >
               About
             </button>
-            <button
-              onClick={() => scrollToSection("products")}
-              className={`${
-                isScrolled ? "text-primary" : "text-white"
-              } hover:text-secondary transition-colors`}
-            >
-              Products
-            </button>
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                className={`${
+                  isScrolled ? "text-primary" : "text-white"
+                } hover:text-secondary transition-colors`}
+              >
+                Products
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {products.map((product, index) => (
+                  <DropdownMenuItem
+                    key={index}
+                    onClick={() => handleProductClick(product.link, product.external)}
+                  >
+                    {product.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
             <button
               onClick={() => scrollToSection("features")}
               className={`${
@@ -100,12 +144,15 @@ export const Navigation = () => {
               >
                 About
               </button>
-              <button
-                onClick={() => scrollToSection("products")}
-                className="text-primary hover:text-secondary transition-colors px-4 py-2"
-              >
-                Products
-              </button>
+              {products.map((product, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleProductClick(product.link, product.external)}
+                  className="text-primary hover:text-secondary transition-colors px-4 py-2"
+                >
+                  {product.name}
+                </button>
+              ))}
               <button
                 onClick={() => scrollToSection("features")}
                 className="text-primary hover:text-secondary transition-colors px-4 py-2"

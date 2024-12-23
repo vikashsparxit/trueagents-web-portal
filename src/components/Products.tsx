@@ -1,6 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export const Products = () => {
+  const navigate = useNavigate();
+  
   const products = [
     {
       image: "/lovable-uploads/cd0ce128-dc9e-40c1-8df3-8841b3d56cf0.png",
@@ -67,6 +70,14 @@ export const Products = () => {
     },
   ];
 
+  const handleExplore = (link: string, external: boolean) => {
+    if (external) {
+      window.open(link, '_blank');
+    } else {
+      navigate(link);
+    }
+  };
+
   return (
     <section id="products" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -92,13 +103,7 @@ export const Products = () => {
               <Button
                 variant="outline"
                 className="w-full"
-                onClick={() => {
-                  if (product.external) {
-                    window.open(product.link, '_blank');
-                  } else {
-                    console.log(`Navigating to ${product.link}`);
-                  }
-                }}
+                onClick={() => handleExplore(product.link, product.external)}
               >
                 Explore
               </Button>
