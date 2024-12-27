@@ -34,17 +34,31 @@ export const Products = () => {
       external: false,
     },
     {
+      image: "/lovable-uploads/SnapText.png",
+      name: "SnapText",
+      description: "Upload an image to detect and analyze curvi-linear text using AI",
+      link: "/snaptext/",
+      external: false,
+    },
+    {
+      image: "/lovable-uploads/Code-Mentor-Agent.png",
+      name: "Code Mentor",
+      description: "AI-Powered Code Analysis",
+      link: "/codementor/",
+      external: false,
+    },
+    {
+      image: "/lovable-uploads/Code-Reviewer-Agent.png",
+      name: "Code Reviewer",
+      description: "Automated code quality assurance and review",
+      link: "/code-evaluator/",
+      external: false,
+    },
+    {
       image: "/lovable-uploads/bc52ccff-24e9-4aaa-b8cc-731f37949158.png",
       name: "Lead Evaluator",
       description: "Intelligent lead qualification and management",
       link: "/lead-evaluator",
-      external: false,
-    },
-    {
-      image: "/lovable-uploads/2a47ab0a-d3bf-479c-bd40-95250a554812.png",
-      name: "Code Reviewer",
-      description: "Automated code quality assurance and review",
-      link: "/code-reviewer",
       external: false,
     },
     {
