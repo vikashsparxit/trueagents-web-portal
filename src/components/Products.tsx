@@ -34,6 +34,13 @@ export const Products = () => {
       external: false,
     },
     {
+      image: "/lovable-uploads/SnapText.png",
+      name: "SnapText",
+      description: "Upload an image to detect and analyze curvi-linear text using AI",
+      link: "/snaptext/",
+      external: false,
+    },
+    {
       image: "/lovable-uploads/Code-Mentor-Agent.png",
       name: "Code Mentor",
       description: "AI-Powered Code Analysis",
